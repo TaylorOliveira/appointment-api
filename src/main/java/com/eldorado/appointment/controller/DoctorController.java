@@ -28,7 +28,7 @@ public class DoctorController {
     }
 
     @GetMapping("/listDoctors")
-    public List<DoctorResponse> getAllCbos() {
+    public List<DoctorResponse> getAllDoctors() {
         return doctorService.getAllDoctors();
     }
 }
