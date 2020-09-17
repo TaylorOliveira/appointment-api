@@ -2,7 +2,6 @@ package com.eldorado.appointment.service;
 
 import com.eldorado.appointment.AutorizadorUsuario;
 import com.eldorado.appointment.dto.UsuarioDTO;
-import com.eldorado.appointment.payload.doctor.DoctorRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
@@ -12,12 +11,8 @@ import java.util.ArrayList;
 @Component
 public class AuthenticationService {
 
-    private final DoctorService doctorService;
-
     @Autowired
-    public AuthenticationService(DoctorService doctorService) {
-        this.doctorService = doctorService;
-    }
+    public AuthenticationService() { }
 
     public UsuarioDTO authenticate(final String login, final String password) {
         try {
