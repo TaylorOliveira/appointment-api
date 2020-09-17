@@ -29,11 +29,9 @@ public class AppointmentController {
     }
 
     @PostMapping("/appointment")
-    public ResponseEntity<?> createAppointment() {
-        Integer doctorId = 1;
-        Integer patientId = 1;
-        AppointmentResponse appointmentResponse = appointmentService.createAppointment(
-                new AppointmentRequest(doctorId.longValue(), patientId.longValue(),  new Date()));
+    public ResponseEntity<?> createAppointment(@Validated @RequestBody AppointmentRequest appointmentRequest) {
+
+        AppointmentResponse appointmentResponse = appointmentService.createAppointment(appointmentRequest);
 
         return ResponseEntity.ok().body(appointmentResponse);
     }

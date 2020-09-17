@@ -2,7 +2,6 @@ package com.eldorado.appointment.payload.appointment;
 
 import com.eldorado.appointment.model.Appointment;
 import com.eldorado.appointment.payload.doctor.DoctorResponse;
-import com.eldorado.appointment.payload.patient.PatientResponse;
 
 import java.util.Date;
 
@@ -12,15 +11,9 @@ public class AppointmentResponse {
 
     private DoctorResponse doctorResponse;
 
-    private PatientResponse patientResponse;
-
-    private Date apponintmentTime;
-
     public AppointmentResponse(Appointment appointment){
         this.id = appointment.getId();
         this.doctorResponse = new DoctorResponse(appointment.getDoctor());
-        this.patientResponse = new PatientResponse(appointment.getPatient());
-        this.apponintmentTime = appointment.getApponintmentTime();
     }
 
     public Long getId() {
@@ -38,16 +31,4 @@ public class AppointmentResponse {
     public void setDoctorResponse(DoctorResponse doctorResponse) {
         this.doctorResponse = doctorResponse;
     }
-
-    public PatientResponse getPatientResponse() {
-        return patientResponse;
-    }
-
-    public void setPatientResponse(PatientResponse patientResponse) {
-        this.patientResponse = patientResponse;
-    }
-
-    public Date getApponintmentTime() { return apponintmentTime; }
-
-    public void setApponintmentTime(Date apponintmentTime) { this.apponintmentTime = apponintmentTime; }
 }

@@ -23,8 +23,7 @@ public class DoctorController {
 
     @PostMapping("/doctor")
     public ResponseEntity<?> createDoctor(@Validated @RequestBody DoctorRequest doctorRequest) {
-        DoctorResponse doctorResponse = doctorService.createDoctor(
-                new DoctorRequest("TAYLOR SANTOS OLIVEIRA", "56789/RQE 0001"));
+        DoctorResponse doctorResponse = doctorService.createDoctor(doctorRequest);
         return ResponseEntity.ok().body(doctorResponse);
     }
 

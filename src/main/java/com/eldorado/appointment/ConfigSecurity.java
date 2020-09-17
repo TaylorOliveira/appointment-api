@@ -136,7 +136,7 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter  {
             final UsuarioDTO user = authService.authenticate(login, senha);
 
             if (user == null) {
-                logger.debug("Login e/ou senha inválidos => login: {}", login);
+                logger.debug("Login e/ou senha invalidos => login: {}", login);
                 return null;
             }
 

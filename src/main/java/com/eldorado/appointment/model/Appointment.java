@@ -9,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Column;
-import java.util.Date;
 
 @Entity
 @Table(name = "appointment")
@@ -24,15 +22,6 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
-
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
-
-    @NotNull
-    @Column(name = "apponintment_time")
-    private Date apponintmentTime;
 
     public Appointment(){ }
 
@@ -49,16 +38,4 @@ public class Appointment {
     }
 
     public void setDoctor(Doctor doctor) { this.doctor = doctor; }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
-    public Date getApponintmentTime() {  return apponintmentTime; }
-
-    public void setApponintmentTime(Date apponintmentTime) { this.apponintmentTime = apponintmentTime; }
 }

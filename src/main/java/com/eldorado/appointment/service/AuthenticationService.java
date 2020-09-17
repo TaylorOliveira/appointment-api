@@ -38,7 +38,7 @@ public class AuthenticationService {
                     return null;
                 }
             }
-            throw new RuntimeException("Erro ao realizar autenticação", ex);
+            throw new RuntimeException("Erro ao realizar autenticacao", ex);
         }
     }
 
