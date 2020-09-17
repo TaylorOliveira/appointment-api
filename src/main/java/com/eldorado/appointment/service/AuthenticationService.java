@@ -19,7 +19,7 @@ public class AuthenticationService {
             if(login.equals("taylor.oliveira") && password.equals("password1234")){
                 ArrayList<String> perfis = new ArrayList<>();
                 perfis.add("USER");
-                AutorizadorUsuario autorizadorUsuario = new AutorizadorUsuario("Taylo Oliveira",
+                AutorizadorUsuario autorizadorUsuario = new AutorizadorUsuario("TAYLOR OLIVEIRA",
                         "taylor.oliveira@gmail.com", perfis);
                 return autorizadorUsuario.toUsuarioDTO(login);
             }
