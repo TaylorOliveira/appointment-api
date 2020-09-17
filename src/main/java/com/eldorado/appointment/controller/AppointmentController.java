@@ -2,8 +2,6 @@ package com.eldorado.appointment.controller;
 
 import com.eldorado.appointment.payload.appointment.AppointmentRequest;
 import com.eldorado.appointment.payload.appointment.AppointmentResponse;
-import com.eldorado.appointment.payload.doctor.DoctorRequest;
-import com.eldorado.appointment.payload.doctor.DoctorResponse;
 import com.eldorado.appointment.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.Date;
 import java.util.List;
 
 @RestController

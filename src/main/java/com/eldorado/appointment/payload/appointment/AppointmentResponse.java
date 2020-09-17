@@ -3,8 +3,6 @@ package com.eldorado.appointment.payload.appointment;
 import com.eldorado.appointment.model.Appointment;
 import com.eldorado.appointment.payload.doctor.DoctorResponse;
 
-import java.util.Date;
-
 public class AppointmentResponse {
 
     private Long id;
