@@ -5,10 +5,8 @@ import com.eldorado.appointment.payload.doctor.DoctorResponse;
 import com.eldorado.appointment.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,7 +22,7 @@ public class DoctorController {
     }
 
     @PostMapping("/doctor")
-    public ResponseEntity<?> createDoctor() {
+    public ResponseEntity<?> createDoctor(@Validated @RequestBody DoctorRequest doctorRequest) {
         DoctorResponse doctorResponse = doctorService.createDoctor(
                 new DoctorRequest("TAYLOR SANTOS OLIVEIRA", "56789/RQE 0001"));
         return ResponseEntity.ok().body(doctorResponse);
@@ -32,6 +30,7 @@ public class DoctorController {
 
     @GetMapping("/listDoctors")
     public List<DoctorResponse> getAllDoctors() {
+
         return doctorService.getAllDoctors();
     }
 }

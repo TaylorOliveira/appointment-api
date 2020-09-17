@@ -34,4 +34,8 @@ public class DoctorService {
         doctorRepository.save(doctor);
         return new DoctorResponse(doctor);
     }
+
+    public void deleteAll(){
+        doctorRepository.deleteAll();;
+    }
 }
