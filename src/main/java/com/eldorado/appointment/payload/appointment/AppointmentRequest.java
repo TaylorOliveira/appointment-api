@@ -1,6 +1,6 @@
 package com.eldorado.appointment.payload.appointment;
 
-import java.time.Instant;
+import java.util.Date;
 
 public class AppointmentRequest {
 
@@ -10,7 +10,15 @@ public class AppointmentRequest {
 
     private Long patientId;
 
-    private Instant apponintmentTime;
+    private Date apponintmentTime;
+
+    public AppointmentRequest() { }
+
+    public AppointmentRequest(Long doctorId, Long patientId, Date apponintmentTime) {
+        this.doctorId = doctorId;
+        this.patientId = patientId;
+        this.apponintmentTime = apponintmentTime;
+    }
 
     public Long getId() {
         return id;
@@ -36,11 +44,11 @@ public class AppointmentRequest {
         this.patientId = patientId;
     }
 
-    public Instant getApponintmentTime() {
+    public Date getApponintmentTime() {
         return apponintmentTime;
     }
 
-    public void setApponintmentTime(Instant apponintmentTime) {
+    public void setApponintmentTime(Date apponintmentTime) {
         this.apponintmentTime = apponintmentTime;
     }
 }

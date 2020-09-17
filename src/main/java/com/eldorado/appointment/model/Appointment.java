@@ -1,10 +1,16 @@
 package com.eldorado.appointment.model;
 
-import com.eldorado.appointment.payload.appointment.AppointmentRequest;
 import com.sun.istack.NotNull;
 
-import javax.persistence.*;
-import java.time.Instant;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import java.util.Date;
 
 @Entity
 @Table(name = "appointment")
@@ -26,7 +32,7 @@ public class Appointment {
 
     @NotNull
     @Column(name = "apponintment_time")
-    private Instant apponintmentTime;
+    private Date apponintmentTime;
 
     public Appointment(){ }
 
@@ -42,9 +48,7 @@ public class Appointment {
         return doctor;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
+    public void setDoctor(Doctor doctor) { this.doctor = doctor; }
 
     public Patient getPatient() {
         return patient;
@@ -54,11 +58,7 @@ public class Appointment {
         this.patient = patient;
     }
 
-    public Instant getApponintmentTime() {
-        return apponintmentTime;
-    }
+    public Date getApponintmentTime() {  return apponintmentTime; }
 
-    public void setApponintmentTime(Instant apponintmentTime) {
-        this.apponintmentTime = apponintmentTime;
-    }
+    public void setApponintmentTime(Date apponintmentTime) { this.apponintmentTime = apponintmentTime; }
 }

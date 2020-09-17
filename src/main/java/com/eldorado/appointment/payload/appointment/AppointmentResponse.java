@@ -4,7 +4,7 @@ import com.eldorado.appointment.model.Appointment;
 import com.eldorado.appointment.payload.doctor.DoctorResponse;
 import com.eldorado.appointment.payload.patient.PatientResponse;
 
-import java.time.Instant;
+import java.util.Date;
 
 public class AppointmentResponse {
 
@@ -14,7 +14,7 @@ public class AppointmentResponse {
 
     private PatientResponse patientResponse;
 
-    private Instant apponintmentTime;
+    private Date apponintmentTime;
 
     public AppointmentResponse(Appointment appointment){
         this.id = appointment.getId();
@@ -47,11 +47,7 @@ public class AppointmentResponse {
         this.patientResponse = patientResponse;
     }
 
-    public Instant getApponintmentTime() {
-        return apponintmentTime;
-    }
+    public Date getApponintmentTime() { return apponintmentTime; }
 
-    public void setApponintmentTime(Instant apponintmentTime) {
-        this.apponintmentTime = apponintmentTime;
-    }
+    public void setApponintmentTime(Date apponintmentTime) { this.apponintmentTime = apponintmentTime; }
 }

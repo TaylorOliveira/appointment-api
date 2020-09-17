@@ -38,6 +38,7 @@ dependencies {
 	runtime 'mysql:mysql-connector-java'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	compile 'com.google.cloud:google-cloud-storage:1.112.0'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.2.5.RELEASE'
 }
 
 dependencyManagement {

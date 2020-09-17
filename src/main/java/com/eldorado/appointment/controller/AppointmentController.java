@@ -8,8 +8,13 @@ import com.eldorado.appointment.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -24,8 +29,12 @@ public class AppointmentController {
     }
 
     @PostMapping("/appointment")
-    public ResponseEntity<?> createAppointment(@Validated @RequestBody AppointmentRequest appointmentRequest) {
-        AppointmentResponse appointmentResponse = appointmentService.createAppointment(appointmentRequest);
+    public ResponseEntity<?> createAppointment() {
+        Integer doctorId = 1;
+        Integer patientId = 1;
+        AppointmentResponse appointmentResponse = appointmentService.createAppointment(
+                new AppointmentRequest(doctorId.longValue(), patientId.longValue(),  new Date()));
+
         return ResponseEntity.ok().body(appointmentResponse);
     }
 

@@ -1,7 +1,5 @@
 package com.eldorado.appointment.controller;
 
-import com.eldorado.appointment.payload.doctor.DoctorRequest;
-import com.eldorado.appointment.payload.doctor.DoctorResponse;
 import com.eldorado.appointment.payload.patient.PatientRequest;
 import com.eldorado.appointment.payload.patient.PatientResponse;
 import com.eldorado.appointment.service.PatientService;
