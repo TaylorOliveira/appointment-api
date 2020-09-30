@@ -1,7 +1,6 @@
 package com.eldorado.appointment.payload.user;
 
-import org.hibernate.engine.internal.Collections;
-
+import java.util.Collections;
 import java.util.List;
 
 public class UserResponse {
@@ -24,10 +23,10 @@ public class UserResponse {
 
     public static class UserResponseBuilder {
 
-        public final String login;
-        public final String name;
-        public final String email;
-        public final List<String> profiles;
+        public String login;
+        public String name;
+        public String email;
+        public List<String> profiles;
 
         public UserResponseBuilder login(String login) {
             this.login = login;
