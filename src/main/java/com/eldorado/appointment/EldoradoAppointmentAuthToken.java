@@ -1,6 +1,6 @@
 package com.eldorado.appointment;
 
-import com.eldorado.appointment.dto.UsuarioDTO;
+import com.eldorado.appointment.payload.user.UserResponse;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -10,13 +10,13 @@ public class EldoradoAppointmentAuthToken extends UsernamePasswordAuthentication
 
     private static final long serialVersionUID = 1L;
 
-    public EldoradoAppointmentAuthToken(UsuarioDTO principal, Object credentials,
+    public EldoradoAppointmentAuthToken(UserResponse principal, Object credentials,
                                         Collection<? extends GrantedAuthority> authorities) {
 
         super(principal, credentials, authorities);
     }
 
-    public UsuarioDTO getUsuario() {
-        return (UsuarioDTO) getPrincipal();
+    public UserResponse getUser() {
+        return (UserResponse) getPrincipal();
     }
 }

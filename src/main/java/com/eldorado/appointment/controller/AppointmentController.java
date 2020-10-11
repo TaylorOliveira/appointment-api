@@ -27,9 +27,7 @@ public class AppointmentController {
 
     @PostMapping("/appointment")
     public ResponseEntity<?> createAppointment(@Validated @RequestBody AppointmentRequest appointmentRequest) {
-
         AppointmentResponse appointmentResponse = appointmentService.createAppointment(appointmentRequest);
-
         return ResponseEntity.ok().body(appointmentResponse);
     }
 

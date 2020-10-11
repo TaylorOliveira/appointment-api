@@ -1,6 +1,6 @@
 package com.eldorado.appointment;
 
-import com.eldorado.appointment.dto.UsuarioDTO;
+import com.eldorado.appointment.payload.user.UserResponse;
 import com.eldorado.appointment.service.AuthenticationService;
 import com.eldorado.appointment.service.ConfigService;
 import com.eldorado.appointment.util.ConfigKey;
@@ -131,16 +131,16 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter  {
         @Override
         public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
             final String login = authentication.getName();
-            final String senha = toString(authentication.getCredentials());
+            final String password = toString(authentication.getCredentials());
 
-            final UsuarioDTO user = authService.authenticate(login, senha);
+            final UserResponse user = authService.authenticate(login, password);
 
             if (user == null) {
                 logger.debug("Login e/ou senha invalidos => login: {}", login);
                 return null;
             }
 
-            final List<GrantedAuthority> authorities = user.perfis.stream()
+            final List<GrantedAuthority> authorities = user.profiles.stream()
                     .map(p -> new SimpleGrantedAuthority("ROLE_" + p)).collect(Collectors.toList());
 
             return new EldoradoAppointmentAuthToken(user, null, authorities);

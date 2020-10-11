@@ -1,7 +1,7 @@
 package com.eldorado.appointment.service;
 
-import com.eldorado.appointment.AutorizadorUsuario;
-import com.eldorado.appointment.dto.UsuarioDTO;
+import com.eldorado.appointment.AuthorizerUser;
+import com.eldorado.appointment.payload.user.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
@@ -14,15 +14,14 @@ public class AuthenticationService {
     @Autowired
     public AuthenticationService() { }
 
-    public UsuarioDTO authenticate(final String login, final String password) {
+    public UserResponse authenticate(final String login, final String password) {
         try {
             if(login.equals("taylor.oliveira") && password.equals("123456")){
                 ArrayList<String> perfis = new ArrayList<>();
                 perfis.add("USER");
-
-                AutorizadorUsuario autorizadorUsuario = new AutorizadorUsuario("TAYLOR OLIVEIRA",
+                AuthorizerUser authorizerUser = new AuthorizerUser("TAYLOR OLIVEIRA",
                         "taylor.oliveira@gmail.com", perfis);
-                return autorizadorUsuario.toUsuarioDTO(login);
+                return authorizerUser.toUserResponse(login);
             }
             return null;
         } catch (RuntimeException ex) {
